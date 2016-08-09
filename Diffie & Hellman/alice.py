@@ -8,7 +8,6 @@ DEST_HOST = '127.0.0.1'
 DEST_PORT = 5001 # Bob
 
 def sender(tcp):
-    time.sleep(5)
     tcp.connect((DEST_HOST, DEST_PORT))
     
     print "Conectado com Bob."
@@ -24,19 +23,17 @@ def receiver(con):
         msg = con.recv(1024)
         if not msg: break
         print "Bob:", msg
-
     con.close()
     thread.exit()
 
-# t = raw_input("Connect? (S/N): ")
-# if t == 'N':
-#     exit(0)
+t = raw_input("Connect? (S/N): ")
+if t == 'N':
+    exit(0)
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 #sender
 thread.start_new_thread(sender, tuple([tcp,]))
-
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind((HOST, PORT))
 tcp.listen(1)

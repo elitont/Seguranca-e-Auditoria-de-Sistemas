@@ -21,19 +21,17 @@ def receiver(con):
         msg = con.recv(1024)
         if not msg: break
         print "Alice:", msg
-
     con.close()
     thread.exit()
 
-# t = raw_input("Connect? (S/N): ")
-# if t == 'N':
-#     exit(0)
+t = raw_input("Connect? (S/N): ")
+if t == 'N':
+    exit(0)
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 #sender
 thread.start_new_thread(sender, tuple([tcp,]))
-
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind((HOST, PORT))
 tcp.listen(1)
