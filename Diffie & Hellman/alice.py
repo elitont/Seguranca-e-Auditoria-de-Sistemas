@@ -1,5 +1,4 @@
 import socket
-import thread
 
 HOST = ''
 PORT = 5000 
@@ -30,6 +29,7 @@ while True:
         PUBLIC_CALC = int(msg)
     print "Bob:", msg
 con.close()
+
 SECRET_KEY = (PUBLIC_CALC ** SECRET_NUM) % PUBLIC_MOD
 print "Chave secreta compartilhada com Bob: ", SECRET_KEY
 tcp.close()

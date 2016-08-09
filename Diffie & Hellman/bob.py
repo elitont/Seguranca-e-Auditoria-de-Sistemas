@@ -1,11 +1,9 @@
 import socket
-import thread
 
 HOST = ''
 PORT = 5001
 DEST_HOST = '127.0.0.1'
 DEST_PORT = 5000 # Alice
-
 SECRET_NUM = input("Numero secreto: ")
 PUBLIC_BASE = 0
 PUBLIC_MOD = 0
@@ -23,11 +21,8 @@ while True:
     else:
         buf = msg.split(' ')
         PUBLIC_BASE = int(buf[0])
-        # print "base: ", PUBLIC_BASE
         PUBLIC_MOD = int(buf[1])
-        # print "mod: ", PUBLIC_MOD
         PUBLIC_CALC = int(buf[2])
-        # print "calc: ", PUBLIC_CALC
     print "Alice:", msg
 client.close()
 SECRET_KEY = (PUBLIC_CALC ** SECRET_NUM) % PUBLIC_MOD
