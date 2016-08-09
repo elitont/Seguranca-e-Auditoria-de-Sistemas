@@ -20,8 +20,5 @@ except ValueError as error:
 
 cifrado = IV + cipher.encrypt(texto)
 decifrado = cipher.decrypt(cifrado)[AES.block_size:]
-
-print "\nTexto cifrado:"
-print cifrado
-print "\nTexto decifrado:"
-print decifrado
+print "\nTexto cifrado:\n", cifrado
+print "\nTexto decifrado:\n", decifrado
