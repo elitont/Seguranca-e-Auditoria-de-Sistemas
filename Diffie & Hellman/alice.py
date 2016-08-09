@@ -11,48 +11,25 @@ PUBLIC_MOD = input("Mod: ")
 PUBLIC_CALC = (PUBLIC_BASE ** SECRET_NUM) % PUBLIC_MOD
 SECRET_KEY = 0
 
-
-
-def sender(tcp):
-    tcp.connect((DEST_HOST, DEST_PORT))
-    # sep = '\n'
-    print "Conectado com Bob."
-    msg = str(PUBLIC_BASE) + ' ' + str(PUBLIC_MOD) + ' ' + str(PUBLIC_CALC)
-    print "enviando: ", msg
-    tcp.send (msg)
-    
-    tcp.close()
-    print "Envio pronto."
-
-def receiver(con):
-    i = 1
-    while i <= 1:
-        msg = con.recv(1024)
-        if not msg: break
-        else:
-            i += 1
-            PUBLIC_CALC = int(msg)
-
-        print "Bob:", msg
-    con.close()
-    SECRET_KEY = (PUBLIC_CALC ** SECRET_NUM) % PUBLIC_MOD
-    print "Chave secreta compartilhada com Bob: ", SECRET_KEY
-    thread.exit()
-
-t = raw_input("Connect? (S/N): ")
-if t == 'N':
-    exit(0)
-
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+tcp.connect((DEST_HOST, DEST_PORT))
+msg = str(PUBLIC_BASE) + ' ' + str(PUBLIC_MOD) + ' ' + str(PUBLIC_CALC)
+tcp.send (msg)
+print "Mensagem enviada:", msg
+tcp.close()
 
-#sender
-thread.start_new_thread(sender, tuple([tcp,]))
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind((HOST, PORT))
 tcp.listen(1)
 
+con, mensagem = tcp.accept()
 while True:
-    con, mensagem = tcp.accept()
-    # receiver
-    thread.start_new_thread(receiver, tuple([con,]))
+    msg = con.recv(1024)
+    if not msg: break
+    else:
+        PUBLIC_CALC = int(msg)
+    print "Bob:", msg
+con.close()
+SECRET_KEY = (PUBLIC_CALC ** SECRET_NUM) % PUBLIC_MOD
+print "Chave secreta compartilhada com Bob: ", SECRET_KEY
 tcp.close()

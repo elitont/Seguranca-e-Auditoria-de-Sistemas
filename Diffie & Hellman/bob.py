@@ -12,38 +12,33 @@ PUBLIC_MOD = 0
 PUBLIC_CALC = 0
 SECRET_KEY = 0
 
-t = raw_input("Connect? (S/N): ")
-if t == 'N':
-    exit(0)
-
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.bind((HOST, PORT))
 tcp.listen(1)
 
 client, mensagem = tcp.accept()
 while True:
-        msg = client.recv(4096)
-        if not msg: break
-        else:
-            buf = msg.split(' ')
-            PUBLIC_BASE = int(buf[0])
-            # print "base: ", PUBLIC_BASE
-            PUBLIC_MOD = int(buf[1])
-            # print "mod: ", PUBLIC_MOD
-            PUBLIC_CALC = int(buf[2])
-            # print "calc: ", PUBLIC_CALC
-        print "Alice: ", msg
+    msg = client.recv(4096)
+    if not msg: break
+    else:
+        buf = msg.split(' ')
+        PUBLIC_BASE = int(buf[0])
+        # print "base: ", PUBLIC_BASE
+        PUBLIC_MOD = int(buf[1])
+        # print "mod: ", PUBLIC_MOD
+        PUBLIC_CALC = int(buf[2])
+        # print "calc: ", PUBLIC_CALC
+    print "Alice:", msg
 client.close()
 SECRET_KEY = (PUBLIC_CALC ** SECRET_NUM) % PUBLIC_MOD
 tcp.close()
 
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.connect((DEST_HOST, DEST_PORT))
-print "Conectado com Alice."
 PUBLIC_CALC = (PUBLIC_BASE ** SECRET_NUM) % PUBLIC_MOD
 msg = str(PUBLIC_CALC)
-print "enviando: ", msg
 tcp.send (msg)
+print "Mensagem enviada:", msg
 tcp.close()
 
 print "Chave secreta compartilhada com Alice: ", SECRET_KEY
