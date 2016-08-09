@@ -1,29 +1,42 @@
 import socket
 import thread
-import time
 
 HOST = ''
 PORT = 5000 
 DEST_HOST = '127.0.0.1' 
 DEST_PORT = 5001 # Bob
+SECRET_NUM = input("Numero secreto: ")
+PUBLIC_BASE = input("Base: ")
+PUBLIC_MOD = input("Mod: ")
+PUBLIC_CALC = (PUBLIC_BASE ** SECRET_NUM) % PUBLIC_MOD
+SECRET_KEY = 0
+
+
 
 def sender(tcp):
     tcp.connect((DEST_HOST, DEST_PORT))
-    
+    # sep = '\n'
     print "Conectado com Bob."
-    msg = raw_input()
-    while msg <> '\x18': # CTRL+X
-        tcp.send (msg)
-        msg = raw_input()
+    msg = str(PUBLIC_BASE) + ' ' + str(PUBLIC_MOD) + ' ' + str(PUBLIC_CALC)
+    print "enviando: ", msg
+    tcp.send (msg)
+    
     tcp.close()
-    print "Desconectado."
+    print "Envio pronto."
 
 def receiver(con):
-    while True:
+    i = 1
+    while i <= 1:
         msg = con.recv(1024)
         if not msg: break
+        else:
+            i += 1
+            PUBLIC_CALC = int(msg)
+
         print "Bob:", msg
     con.close()
+    SECRET_KEY = (PUBLIC_CALC ** SECRET_NUM) % PUBLIC_MOD
+    print "Chave secreta compartilhada com Bob: ", SECRET_KEY
     thread.exit()
 
 t = raw_input("Connect? (S/N): ")
