@@ -15,3 +15,7 @@ Uso:
 
 	Validar assinatura
 		$ python3 assinatura_digital.py 2 cfg/valida.in
+
+Obs: 
+	Os arquivos "cfg/chave_publica.pem" e "cfg/valida.in" são usados para qualquer texto de entrada,
+	alterando-se para cada texto diferente na geração de assinatura digital.

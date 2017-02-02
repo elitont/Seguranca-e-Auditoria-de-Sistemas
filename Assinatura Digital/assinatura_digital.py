@@ -28,7 +28,6 @@ if opt == 1:
 	file_vldt.write(str(signature) + '\n' + str(publickey_txt))
 
 else:
-
 	all_text = text.readlines()
 	text = all_text[0].replace('\n', '')
 	signature_gerated = all_text[2].replace('\n', '')
