@@ -53,17 +53,20 @@ int main(int argc, char **argv) {
     bzero((char *) &serveraddr, sizeof(serveraddr));
     serveraddr.sin_family = AF_INET;
     bcopy((char *)server->h_addr, 
-	  (char *)&serveraddr.sin_addr.s_addr, server->h_length);
+      (char *)&serveraddr.sin_addr.s_addr, server->h_length);
     serveraddr.sin_port = htons(portno);
 
     /* get a message from the user */
     bzero(buf, BUFSIZE);
-    printf("Please enter msg: ");
-    fgets(buf, BUFSIZE, stdin);
+    strcpy(buf, "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+
+    buf[strlen(buf)+1]  = 0x2d;
+    buf[strlen(buf)+2]  = 0x0a;
+    buf[strlen(buf)+3]  = 0x40;
 
     /* send the message to the server */
     serverlen = sizeof(serveraddr);
-    n = sendto(sockfd, buf, strlen(buf), 0, &serveraddr, serverlen);
+    n = sendto(sockfd, buf, strlen(buf)+2, 0, &serveraddr, serverlen);
     if (n < 0) 
       error("ERROR in sendto");
     
