@@ -8,7 +8,9 @@ Uso:
 
 	Gerar assinatura
 		$ python3 assinatura_digital.py 1 data/text.in
+		
 		# ou
+		
 		$ python3 assinatura_digital.py 1 <seuarquivodetexto>
 
 	Validar assinatura
