@@ -7,7 +7,7 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 # Trabalho 6: 
 	Implementar as 4 cifras de criptografia clássica discutidas em aula:
 	*	Vigenere
-	*	Cesar
+	*	Cesar OK
 	*	Transposição 
 	*	Substituição
 
@@ -15,14 +15,14 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 # Trabalho 7: 
 	Implementar ataques com texto em claro para as 4 cifras implementadas no T6.
 	*	Vigenere
-	*	Cesar
+	*	Cesar OK
 	*	Transposição 
 	*	Substituição
 
 # Trabalho 8:
 	Implementar ataque SEM O TEXTO em claro (força bruta), para as cifras de Vigener, Cesar e Transposição.
 	*	Vigenere
-	*	Cesar
+	*	Cesar OK
 	*	Transposição
 
 # Trabalho 11:
@@ -57,6 +57,7 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 			data/outputs/cesar_decifrado.txt
 
 
+##########################################################################################################
 	Vigenere:
 	
 	*	Cifrar:
@@ -69,6 +70,8 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 
 	*	Saídas:
 
+
+##########################################################################################################
 	Transposição:
 	
 	*	Cifrar:
@@ -82,6 +85,7 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 	*	Saídas:
 
 
+##########################################################################################################
 	Substituição:
 	
 	*	Cifrar:
