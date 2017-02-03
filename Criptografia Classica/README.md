@@ -72,6 +72,8 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 
 	*	Ataque com texto em claro:
 
+			$ python ataque/claro/vigenere_ataque_claro.py data/outputs/vigenere_decifrado.txt data/outputs/vigenere_cifrado.txt
+
 	*	Ataque por força bruta:
 
 	*	Saídas:
