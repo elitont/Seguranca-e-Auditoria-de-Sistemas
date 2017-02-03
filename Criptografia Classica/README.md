@@ -48,9 +48,12 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 			$ python src/cesar.py 2 <int(chave)>
 
 	*	Ataque com texto em claro:
+			
 			$ python ataque/claro/cesar_ataque_claro.py data/outputs/cesar_decifrado.txt data/outputs/cesar_cifrado.txt
 
 	*	Ataque por força bruta:
+
+			$ python ataque/escuro/cesar_forca_bruta.py data/outputs/cesar_cifrado.txt
 
 	*	Saídas:
 			data/outputs/cesar_cifrado.txt
