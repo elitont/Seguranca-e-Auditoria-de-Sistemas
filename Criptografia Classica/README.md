@@ -75,6 +75,8 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 			$ python ataque/claro/vigenere_ataque_claro.py data/outputs/vigenere_decifrado.txt data/outputs/vigenere_cifrado.txt
 
 	*	Ataque por força bruta:
+			
+			$ python ataque/escuro/vigenere_forca_bruta.py data/outputs/vigenere_cifrado.txt
 
 	*	Saídas:
 
