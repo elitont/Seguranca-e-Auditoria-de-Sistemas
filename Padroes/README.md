@@ -5,10 +5,13 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 
 ################################################################################
 # Uso:
-	$ python padroes_palavras.py data/words.txt
+	
+	Encontrar padrões:
+		$ python3 padroes_palavras.py data/words.txt
 
-	ou
+		ou
 
-	$ python padroes_palavras.py <arquivo>
+		$ python3 padroes_palavras.py <arquivo>
 
-
+	Saída:
+		data/padroes.txt
