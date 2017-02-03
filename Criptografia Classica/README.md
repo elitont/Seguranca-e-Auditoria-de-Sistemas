@@ -79,6 +79,8 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 			$ python ataque/escuro/vigenere_forca_bruta.py data/outputs/vigenere_cifrado.txt
 
 	*	Saídas:
+			data/outputs/vigenere_cifrado.txt
+			data/outputs/vigenere_decifrado.txt
 
 
 ##########################################################################################################
