@@ -64,8 +64,11 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 	Vigenere:
 	
 	*	Cifrar:
+			$ python src/vigenere.py 1 <str(chave)> data/inputs/1.input
 
 	*	Decifrar:
+
+			$ python src/vigenere.py 2 <str(chave)>
 
 	*	Ataque com texto em claro:
 
