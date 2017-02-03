@@ -31,47 +31,65 @@ by Eliton Traverssini - <eliton.traverssini@gmail.com>
 
 ############################################################################################################
 
-Uso:
+# Uso:
 	
-	# César:
+	César:
 	
-		Cifrar:
+	*	Cifrar:
 
-		Decifrar:
+			$ python src/cesar.py 1 <int(chave)> data/inputs/1.input
 
-		Ataque com texto em claro:
+			ou
 
-		Ataque por força bruta:
+			$ python src/cesar.py 1 <int(chave)> <seu_arquivo>
+
+	*	Decifrar:
+
+			$ python src/cesar.py 2 <int(chave)>
+
+	*	Ataque com texto em claro:
+
+	*	Ataque por força bruta:
+
+	*	Saídas:
+			data/outputs/cesar_cifrado.txt
+			data/outputs/cesar_decifrado.txt
 
 
-	# Vigenere:
+	Vigenere:
 	
-		Cifrar:
+	*	Cifrar:
 
-		Decifrar:
+	*	Decifrar:
 
-		Ataque com texto em claro:
+	*	Ataque com texto em claro:
 
-		Ataque por força bruta:
+	*	Ataque por força bruta:
 
+	*	Saídas:
 
 	# Transposição:
 	
-		Cifrar:
+	*	Cifrar:
 
-		Decifrar:
+	*	Decifrar:
 
-		Ataque com texto em claro:
+	*	Ataque com texto em claro:
 
-		Ataque por força bruta:
+	*	Ataque por força bruta:
+	
+	*	Saídas:
 
 
 	# Substituição:
 	
-		Cifrar:
+	*	Cifrar:
 
-		Decifrar:
+	*	Decifrar:
 
-		Ataque com texto em claro:
+	*	Ataque com texto em claro:
 
-		Ataque por força bruta:
+	*	Ataque por força bruta:
+	
+	*	Saídas:
+	
